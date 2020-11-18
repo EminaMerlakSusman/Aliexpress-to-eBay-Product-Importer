@@ -8,9 +8,9 @@ import os.path
 from djangonautic.models import *
 from djangonautic.models import Page
 import json
-import celery
+
 # from djangonautic.savbrb import bla
-import redis
+
 
 
 def homepage(request):
@@ -256,14 +256,6 @@ def product_info(request):
 
 
 
-
-def get_progress(request, task_id):
-    result = celery.result.AsyncResult(task_id)
-    response_data = {
-        'state': result.state,
-        'details': result.info,
-    }
-    return HttpResponse(json.dumps(response_data), content_type='application/json')
 
 
 def about(request):

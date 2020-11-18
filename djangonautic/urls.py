@@ -6,7 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about),
     path('', views.homepage),
-    path('product_info/', views.product_info),
-    path(r'^(?P<task_id>[\w-]+)/$', views.get_progress, name='task_status')
+    path('product_info/', views.product_info)
 ]
 

@@ -1,0 +1,17 @@
+
+$(document).ready(function () {
+
+  $('#{{ variation_names[0].variation_name }}', '#{{ variation_names[1].variation_name }}').change(function(){
+    if ($('#{{variation_names[0].variation_name}}').val() && $('#{{variation_names[1].variation_name}}').val()) {
+      var valueFrom = $('#{{variation_names[0].variation_name}} option:selected').text();
+      var valueTo = $('#{{variation_names[1].variation_name}} option:selected').text();
+
+      $('#annual-revenue-button').html("From: " + valueFrom + " To: " + valueTo + "&ensp;&times;").show('fast');
+    };
+  });
+
+});
+
+$('.search-popup').click(function () {
+  $(this).hide('fast');
+});

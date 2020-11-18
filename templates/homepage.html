@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet"  href="{%  static  '/css/home_page.css'  %}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<title>Product Import Tool</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
+</script>
+
+<body>
+
+<!--<div class="jumbotron">
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+
+</div>-->
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+
+    </div>
+    <div class="col-md-7">
+        <h1>Aliexpress product importer</h1>
+
+    </div>
+    <div class="col-md">
+
+    </div>
+  </div>
+    <div class="row" id="how-it-works">
+    <div class="col-md">
+
+    </div>
+
+    <div class="col-md-7">
+  <h4>Here's how it works:</h4>
+<div class="cards-list">
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+
+    <h5 class="card-title">Step 1:</h5>
+    <p class="card-text">Paste a valid Aliexpress product URL then click "Import!"</p>
+
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Step 2:</h5>
+
+    <p class="card-text">You will then be redirected to a product page with the imported product data.</p>
+
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Step 3:</h5>
+
+    <p class="card-text">Once on the page, you can import the product to your eBay store with the click of a button!</p>
+
+  </div>
+</div>
+</div>
+<!--
+  <ul class="how-it-works">
+  <li>
+    Paste a valid product URL below, then click "Import!" </li>
+      <li>
+        We will then show you a product page with all the imported product information.
+     </li>
+    <li>
+        Once on the product page, simply click the button to import the product to your eBay store.
+     </li>
+-->
+
+
+
+
+
+  </div>
+  <div class="col-md">
+
+    </div>
+</div>
+
+<div class="center">
+<form method="post">
+    {% csrf_token %}
+    {{ form.post }}
+    <br><br>
+    <input type="submit" value="Import!" class="btn btn-danger btn-lg" name="btn" id="btn">
+</form>
+</div>
+<script>
+
+  $('#btn').hover(
+  function(){
+    $('#btn').attr("class", "btn btn-outline-secondary btn-lg");
+  },
+  function(){
+    $("#btn").attr("class", "btn btn-danger btn-lg");
+  });
+
+</script>
+
+</body>
+</html>

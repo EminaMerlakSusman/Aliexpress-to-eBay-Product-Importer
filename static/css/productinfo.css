@@ -1,0 +1,195 @@
+.container {
+margin-top: 100px !important;
+
+}
+
+button {
+  background-color: blue;
+  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+
+}
+
+#carousel-thumb {
+  position: relative !important;
+
+  padding: 0px;
+
+}
+
+#import-btn {
+    width: 12rem !important;
+}
+
+
+
+#submit-row {
+    position: absolute;
+    text-align:center;
+    width: 100%;
+
+
+}
+
+
+
+.price-input {
+    height: 20px;
+    width: 15px;
+    font-size: 12px;
+
+}
+
+.enter-profit-label {
+    color:black;
+    font-size: 15px;
+
+}
+#behind {
+    width: 100%;
+}
+
+#behind img {
+  height:100%;
+  width:100%;
+
+}
+
+.form-group {
+    width: 15rem;
+    height: 2rem;
+
+}
+
+button:hover {
+  background-color: lightgray;
+}
+.carousel-indicators {
+
+    position: relative !important;
+}
+
+.dropdown-toggle {
+    width: 13rem;
+    margin-left: 1rem !important;
+
+}
+
+label {
+    width: 100px !important;
+    text-align: center;
+
+}
+
+.btn-group {
+    margin-bottom: 1rem !important;
+
+}
+
+button {
+   border-radius: 20px !important;
+
+}
+
+.carousel-indicators li {
+    height: 60px !important;
+    width: 60px !important;;
+    margin-right: 1px;
+}
+.carousel-indicators img {
+    height: 60px;
+    width: 60px !important;
+}
+
+.newarrival {
+background:green !important;
+width:50px;
+color:white;
+font-size:12px;
+font-weight:bold;
+}
+
+
+.col-md-7 h2 {
+
+color:#555;
+}
+
+.stars {
+height:15px;
+}
+
+.stars img {
+margin:0;
+height:15px;
+width:67px;
+}
+
+.price {
+color: #FE980F;
+font-size:26px;
+font-weight:bold;
+padding-top:20px;
+}
+
+.carousel-control-next-icon {
+    background-color:blue;
+
+
+}
+
+/*.main-product-wrapper {
+
+
+
+}
+
+.images-list-wrapper {
+width:100%;
+overflow-x:auto;
+display:flex;
+}
+
+.images-list {
+padding:0px;
+text-align:center;
+margin:auto;
+display:flex;
+}
+
+.product-image-wrap {
+display: flex;
+align-items:flex-start;
+flex-direction: column;
+width:40%;
+
+}
+
+.main-image-display {
+width:100%;
+
+}
+
+#main-image {
+max-width:100%;
+max-height:100%;
+}
+
+.thumbnail-elt {
+    width:80px;
+    height:80px;
+
+}
+
+.clicker {
+    width: 100%;
+    height:100%;
+
+}
+
+.thumbnail {
+ width:100%;
+ height:100%;
+}*/
+

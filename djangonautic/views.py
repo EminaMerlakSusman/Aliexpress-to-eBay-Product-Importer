@@ -258,6 +258,6 @@ def product_info(request):
 
 
 
-def about(request):
+def privacy_policy(request):
     # return HttpResponse("about")
-    return render(request, "about.html")
+    return render(request, "privacy_policy.html")

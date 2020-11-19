@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', ')bs+(rfk$m7x^tyq8y*@4zt243&3+h
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['aliproductimport.herokuapp.com']
+ALLOWED_HOSTS = ['aliproductimport.herokuapp.com', 'localhost']
 
 
 # Application definition

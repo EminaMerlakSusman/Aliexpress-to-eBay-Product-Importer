@@ -19,6 +19,14 @@ html {
 
 
 }
+body {
+    height: 100vh;
+
+}
+footer {
+    height: 100px;
+    margin-top: 60px;
+}
 
 #how-it-works {
     margin-top: 30vh;

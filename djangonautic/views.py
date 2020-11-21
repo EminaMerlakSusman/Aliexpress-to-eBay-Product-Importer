@@ -2,6 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
 import sys
+
+from djangonautic import additem, get_session_id
 from djangonautic.forms import HomeForm
 import _sqlite3
 import os.path
@@ -252,7 +254,16 @@ def product_info(request):
         '''Fetches the URL of a variation image (if it exists) to display once the
         variation value is clicked'''
 
-        return HttpResponse("Success!")
+        session_ID = get_session_id.get_session_ID()
+
+        redirect("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_ID))
+
+
+        token = get_session_id.get_token(session_ID)
+
+        # additem.make_api_call(token=token)
+
+        return HttpResponse(token)
 
 
 

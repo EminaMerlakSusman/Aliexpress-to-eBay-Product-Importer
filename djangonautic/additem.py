@@ -12,7 +12,7 @@ import celery
 
 # this decorator is all that's needed to tell celery this is a worker task
 
-def make_api_call(): #we will track the progress of this function
+def make_api_call(token): #we will track the progress of this function
     #getting inputted product url from database
     url_list = list(Product.objects.all())
     url = url_list[-1].productURL
@@ -20,7 +20,7 @@ def make_api_call(): #we will track the progress of this function
     #config_file = os.path.abspath('ebay.yaml')
 
     (title_fr, listing_has_variations, main_product_images, price_value, variation_node, variationSpecificsSet,
-     variationSpecificName, variationSpecificPictureSet) = api_formatting_for_raw_html.format_api_call(url) #This is the first worker function
+     variationSpecificName, variationSpecificPictureSet) = api_formatting_for_raw_html.format_api_call(url)  # Importing product data from URL
     progress = Page(title = 'Got data from database')
     progress.save()
     #getting rid of '&' sign in title to avoid xml errors
@@ -41,8 +41,7 @@ def make_api_call(): #we will track the progress of this function
     cateid = get_categories.get_suggested_categories(query=cleaned_title, config_file=None)[1] #This is the second worker function
     progress = Page(title = 'Got suggested categories')
     progress.save()
-    api = Connection(domain='api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7fae46-248b79d0", devid = "09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
-                     certid = "SBX-ca7fae460895-89b9-45d6-8fce-7d21", token = "AgAAAA**AQAAAA**aAAAAA**flQ0Xg**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wFk4aiCpSDoA+dj6x9nY+seQ**SysFAA**AAMAAA**Ya3fWTOOVI/E5vAK8i+k2QD3TOA3NR6NeAkJN9AoCtP1dYB/kfl7lU/PcbknrjdA9G5jy00ZABDom2CjvgMzc7AKKkykIa1MOkKfyuEUK4mPnUx1MfDd+7Rj/KItn+CSuibu0GyfaPbCorCa6S1agHNmLPOzmME5Nd53RCiwpUQKy1TgVuY3HY93BXamtoIMlK0Vg3Dah0sf8X6kCGpKAcfKwprWS1B8OKf7N+2P3ApVWgodIRJcUoWPUKZazfYdnjb+9nEfIEWnsp+kYmm0pS1FM7JNfkKMAI59cmp08KN4GxZJ4FoSK4uGnEJw/1dGtPBive7e9mgzcuJzSRZ/7JiUxIxtM3Bgl00TR171wOydAnuxnXpSJLmzfhzEb+EFBkWOUjufiiUNcVQC9n5oFVGPAPSHGaWCw3oM4ahXElz+kdzzm7bwvXma0MumftD79EHPHUlS7WUe/KGom1osr/DkfS6TeHHMQfWWvoVykdbLVpxEpAptdiICFED1UoJOsgxl9jXPlGj5vwRfUmCXyR3wCE7pVtuc1TcII6sCCTc5ljQCILOXDbddoUhe6MTsoNFK36gX+HYavrxcfhvIc+8ABs+bQ5WFs0ZSf1BsUbi1Y2R6Lwc0gi24PfaOLmEOFFmnwA7YpZpVmpS7zc3gx2zSTRZ0AG36CS+CTIkMIQSWcnbHN1S4+udBpEmC8yzEQbj/xV/fKRWPmun1YHHU5it/43lHmSPLnll4CUKDaa+3mFeAo6+y/4QWVnhEjHyC")
+    api = Connection(domain='api.sandbox.ebay.com', token = token)
     request = {
         "Item": {
             "Title": cleaned_title,

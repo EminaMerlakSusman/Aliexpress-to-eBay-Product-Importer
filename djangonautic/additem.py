@@ -1,11 +1,11 @@
-from celery.app import task
+
 from ebaysdk.trading import Connection
 import os
 from djangonautic import api_formatting_for_raw_html
 from djangonautic import get_categories
 from djangonautic.models import Product
 from djangonautic.models import Page
-import celery
+
 #var_pics = {'Color': [x[1] for x in variations]}
 #from djangonautic.views import text
 '''Makes the api call to add product, also calls other functions to import the product in the url'''

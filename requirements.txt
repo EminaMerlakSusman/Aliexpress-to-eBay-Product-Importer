@@ -4,4 +4,5 @@ gunicorn==20.0.4
 psycopg2==2.8.6
 requests==2.7.0
 ebaysdk
+certifi
 whitenoise==5.2.0

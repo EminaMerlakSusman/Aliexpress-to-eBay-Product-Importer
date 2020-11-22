@@ -165,6 +165,13 @@ def homepage(request):
 
 
 def product_info(request):
+
+        # token = get_session_id.get_token(session_ID)
+        #
+        # additem.make_api_call(token=token)
+        #
+        # return HttpResponse(token)
+
     if request.method == "GET" and not request.is_ajax():
         '''Get product info from database'''
         print("request was not ajax")
@@ -256,14 +263,14 @@ def product_info(request):
 
         session_ID = get_session_id.get_session_ID()
 
-        redirect("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_ID))
+        return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_ID))
 
 
-        token = get_session_id.get_token(session_ID)
+        #token = get_session_id.get_token(session_ID)
 
         # additem.make_api_call(token=token)
 
-        return HttpResponse(token)
+        #return HttpResponse(token)
 
 
 

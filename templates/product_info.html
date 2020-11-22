@@ -166,7 +166,8 @@
 </div>
 
 <div class="col">
-    <input id = "import-btn" class="btn btn-danger btn-lg" type="submit" name="btn" value="Import to eBay!">
+
+    <input id = "import-btn" class="btn btn-danger btn-lg" type="submit" name="btn" value="Log in with eBay">
 </div>
 
 <div class="col">
@@ -231,7 +232,7 @@ $(document).ready(function () {
 
 $('#import-btn').click(function () {
 
-    $.ajax (
+        $.ajax (
    {
 
     type:"GET",
@@ -241,7 +242,7 @@ $('#import-btn').click(function () {
     },
     success: function(data) {
 
-        $('#import-btn').attr('value', data);
+        location.href = data;
         }
 
     })

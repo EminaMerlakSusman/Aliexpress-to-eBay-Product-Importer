@@ -166,11 +166,13 @@ def homepage(request):
 
 def product_info(request):
 
-        # token = get_session_id.get_token(session_ID)
-        #
-        # additem.make_api_call(token=token)
-        #
-        # return HttpResponse(token)
+    session_id = get_session_id.get_session_ID()
+    print("session_id_got")
+    import logging
+    logger = logging.getLogger('testlogger')
+    logger.info('This is a simple log message')
+
+    print(request.META['HTTP_REFERER'])
 
     if request.method == "GET" and not request.is_ajax():
         '''Get product info from database'''
@@ -261,9 +263,9 @@ def product_info(request):
         '''Fetches the URL of a variation image (if it exists) to display once the
         variation value is clicked'''
 
-        session_ID = get_session_id.get_session_ID()
 
-        return redirect("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_ID))
+
+        return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_id))
 
 
         #token = get_session_id.get_token(session_ID)

@@ -170,6 +170,11 @@ def product_info(request):
 
     if "?ebaytkn=&tknexp=" in request.get_full_path():
         print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        token = get_session_id.get_token(session_id)
+
+        additem.make_api_call(token=token)
+
+        return HttpResponse("made api call with token:" + token)
     # import logging
     # logger = logging.getLogger('testlogger')
     # logger.info('This is a simple log message')

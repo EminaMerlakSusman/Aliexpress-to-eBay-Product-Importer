@@ -167,6 +167,9 @@ def homepage(request):
 def product_info(request):
     session_id = get_session_id.get_session_ID()
     print("session_id_got")
+
+    if "?ebaytkn=&tknexp=" in request.get_full_path():
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     # import logging
     # logger = logging.getLogger('testlogger')
     # logger.info('This is a simple log message')

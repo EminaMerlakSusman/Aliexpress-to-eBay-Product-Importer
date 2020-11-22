@@ -165,8 +165,7 @@ def homepage(request):
 
 
 def product_info(request):
-
-
+    session_id = get_session_id.get_session_ID()
     print("session_id_got")
     # import logging
     # logger = logging.getLogger('testlogger')
@@ -262,7 +261,7 @@ def product_info(request):
 
         '''Fetches the URL of a variation image (if it exists) to display once the
         variation value is clicked'''
-        session_id = get_session_id.get_session_ID()
+
 
 
         return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_id))

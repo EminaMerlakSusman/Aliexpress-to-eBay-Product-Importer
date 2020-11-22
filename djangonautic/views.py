@@ -171,7 +171,7 @@ def product_info(request):
         print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
         query = SessionID.objects.latest("id")
-        session_id = query[0].session_id
+        session_id = query.session_id
         token = get_session_id.get_token(session_id)
 
         additem.make_api_call(token=token)

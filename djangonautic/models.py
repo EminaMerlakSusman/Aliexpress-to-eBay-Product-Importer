@@ -49,7 +49,8 @@ class VariationPictures(models.Model):
     value = models.ForeignKey(VariationValue, default=None, null=True ,on_delete=models.CASCADE)
     imageURL = models.URLField(max_length=1000, null=True)
 
-
+class SessionID(models.Model):
+    session_id = models.CharField(default=None, null=True, max_length=1000)
 
 class Page(models.Model):
     title = models.CharField(max_length=220)

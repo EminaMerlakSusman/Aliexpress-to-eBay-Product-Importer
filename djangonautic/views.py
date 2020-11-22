@@ -263,7 +263,7 @@ def product_info(request):
 
         session_ID = get_session_id.get_session_ID()
 
-        return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_ID))
+        return redirect("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_ID))
 
 
         #token = get_session_id.get_token(session_ID)

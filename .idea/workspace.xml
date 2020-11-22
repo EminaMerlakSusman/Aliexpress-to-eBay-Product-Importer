@@ -4,9 +4,8 @@
     <list default="true" id="86ad1abd-edc1-47ff-9168-9c8cafab690a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangonautic/get_session_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/get_session_id.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/djangonautic/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

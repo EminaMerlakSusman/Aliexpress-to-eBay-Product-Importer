@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 def get_session_ID():
     '''Establishing API conncetion'''
 
-    api = Connection(domain='https://api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7fae46-248b79d0", devid = "09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
+    api = Connection(domain='api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7fae46-248b79d0", devid = "09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
                      certid = "SBX-ca7fae460895-89b9-45d6-8fce-7d21")
 
     '''Making GetSessionID call to get session ID of the user who logged in'''

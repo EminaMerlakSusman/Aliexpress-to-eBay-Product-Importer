@@ -1,14 +1,18 @@
+from urllib.request import urlopen
+
 from ebaysdk.trading import Connection
 import requests
 import xml.etree.ElementTree as ET
+import urllib
 
-
+api = Connection(domain='api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7fae46-248b79d0",
+                 devid="09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
+                 certid="SBX-ca7fae460895-89b9-45d6-8fce-7d21")
 
 def get_session_ID():
     '''Establishing API conncetion'''
 
-    api = Connection(domain='api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7fae46-248b79d0", devid = "09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
-                     certid = "SBX-ca7fae460895-89b9-45d6-8fce-7d21")
+    global api
 
     '''Making GetSessionID call to get session ID of the user who logged in'''
 
@@ -26,12 +30,12 @@ def get_session_ID():
 
     return session_ID
 
+
+
 def get_token(session_ID):
     '''Exchanging user's SessionID for a token'''
+    global api
 
-    api = Connection(domain='api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7fae46-248b79d0",
-                     devid="09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
-                     certid="SBX-ca7fae460895-89b9-45d6-8fce-7d21")
 
     data = {
         'SessionID': "SysFAA**ec001c891750ac793df557bcfffff2b3"
@@ -92,3 +96,9 @@ def get_token(session_ID):
 
 #resp = requests.get("https://signin.ebay.com/ws/eBayISAPI.dll?oAuthRequestAccessToken&client_id=EminaMer-testing-PRD-2e6527e18-557772c0&redirect_uri=Emina_Merlak_Su-EminaMer-testin-vnissn&client_secret=PRD-e6527e1828b8-ed34-423d-956f-2792&code=v%5E1.1%2523i%5E1%2523p%5E3%2523I%5E3%2523f%5E0%2523r%5E1%2523t%5EUl41XzExOjEyNTQzNUQ5NzcyNzAwRjlEQjQwRTQ2QUREQzE1Qzg2XzBfMSNFXjI2MA%253D%253D")
 #print(resp.text)
+#sesh = get_session_ID()
+#print(sesh)
+#
+#sesh = "SysFAA**f539e9451750ac793df557bcfffff137"
+#print("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(sesh))
+print(get_token("SysFAA**f539e9451750ac793df557bcfffff137"))

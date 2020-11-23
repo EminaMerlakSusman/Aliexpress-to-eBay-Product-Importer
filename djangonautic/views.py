@@ -172,6 +172,7 @@ def product_info(request):
 
         query = SessionID.objects.latest("id")
         session_id = query.session_id
+        print("seshid", session_id)
         token = get_session_id.get_token(session_id)
 
         additem.make_api_call(token=token)
@@ -275,7 +276,7 @@ def product_info(request):
         session_id = get_session_id.get_session_ID()
         new_sesh_id = SessionID(session_id=session_id)
         new_sesh_id.save()
-        print("session_id_got")
+        print("session_id_got", session_id)
 
         return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_id))
 

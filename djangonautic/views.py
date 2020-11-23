@@ -20,10 +20,10 @@ def homepage(request):
     var_names = []  # this is later needed while saving SKU combinations
     var_values = {}
     if request.method == "POST" and "btn" in request.POST:
-        print("request values")
+        #print("request values")
         form = HomeForm(request.POST)
         if form.is_valid():
-            print("Form was valid")
+            #print("Form was valid")
             text = form.cleaned_data['post']
             args = {'form': form, 'text': text}
 
@@ -34,7 +34,7 @@ def homepage(request):
              variationPictures, skuPriceList) = return_response(text) # calling function to import product
 
             thumbnail_image_url = images_list[0]
-            print(images_list[0])
+            #print(images_list[0])
             product_data = Product(productURL=text, title=title, thumbnail_image_url=images_list[0],
                                    price=skuPriceList[0][-1]["price"])
             product_data.save()
@@ -44,7 +44,7 @@ def homepage(request):
                 formatted_images_list += x + " "
             formatted_images_list = formatted_images_list
             progress = "saving images..."
-            print(progress)
+            #print(progress)
 
             # adding images to productImages model
 
@@ -54,7 +54,7 @@ def homepage(request):
             images_list_from_db = ProductImage.objects.all().filter(product=Product.objects.all().latest('id'))
 
             progress = "done..."
-            print(progress)
+            #print(progress)
 
             # Adding variations
 
@@ -77,7 +77,7 @@ def homepage(request):
                         # var_names[variation_name_data] += val_data  # needed for SKU combos
 
             progress = "saving combinations..."  # where the foreign keys would be: color, size
-            print(progress)
+            #print(progress)
 
             # Saving SKU combinations into database
             combo_list_db = []
@@ -118,11 +118,11 @@ def homepage(request):
 
                         combo.variation_value.add(current_var_value)
 
-                print("variation pics", listing_has_var_images ,variationPictures)
+                #print("variation pics", listing_has_var_images ,variationPictures)
 
                 # saving variation images to database
                 if listing_has_var_images:
-                    print("listing had var images", variationPictures)
+                    #print("listing had var images", variationPictures)
                     var_name = list(variationPictures.keys())[0]
                     value_list = variationPictures[var_name]
 
@@ -159,7 +159,7 @@ def homepage(request):
             return redirect('/product_info')
 
     else:  # this was an initial page load
-        print("check false")
+        #print("check false")
         form = HomeForm()
         return render(request, "homepage.html", {'form': form, 'text': 'bla'})
 
@@ -168,19 +168,22 @@ def product_info(request):
 
 
     if "?ebaytkn=&tknexp=" in request.get_full_path():
-        #print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        url = request.get_full_path()
+
+        username = url[url.index("username=") + len("username="):]
 
         query = SessionID.objects.latest("id")
         session_id = query.session_id
         #print("seshid", session_id)
         token = get_session_id.get_token(session_id)
 
+        context = {'username', username}
         try:
             additem.make_api_call(token=token)
 
-            return HttpResponse("Successfully posted to eBay!")
+            return render("import_success.html", context=context)
         except:
-            return HttpResponse("There was an error with the listing", e)
+            return HttpResponse("There was an error with the listing")
     # import logging
     # logger = logging.getLogger('testlogger')
     # logger.info('This is a simple log message')

@@ -100,4 +100,4 @@ def get_token(session_ID):
 #sesh = "SysFAA**f539e9451750ac793df557bcfffff137"
 #print("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(sesh))
 
-print(get_token("SysFAA**f55719841750a9d9ccc3c06ffffff59c"))
+#print(get_token("SysFAA**f55719841750a9d9ccc3c06ffffff59c"))

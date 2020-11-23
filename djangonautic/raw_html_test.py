@@ -17,7 +17,7 @@ def return_response(url):
     #url = "https://www.aliexpress.com/item/33055295288.html?spm=a2g0o.productlist.0.0.1aee3fd2w2G1NE&algo_pvid=301b895e-1e59-4c70-aaf3-4ea7dd77e13a&algo_expid=301b895e-1e59-4c70-aaf3-4ea7dd77e13a-11&btsid=0bb0622e16014125086708276e486a&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
     #url = "https://www.aliexpress.com/item/4001155636952.html?spm=a2g0o.productlist.0.0.448e413dN6SAhP&algo_pvid=838dab60-bf9f-4bc9-9a16-8b0dd7656a47&algo_expid=838dab60-bf9f-4bc9-9a16-8b0dd7656a47-9&btsid=0bb0622f16027692419813645ecfb0&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
     response = requests.get(url).text
-    #print(response)
+    print(response)
 
     '''Getting title and description'''
 

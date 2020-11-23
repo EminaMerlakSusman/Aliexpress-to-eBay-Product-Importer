@@ -174,16 +174,14 @@ def product_info(request):
 
         query = SessionID.objects.latest("id")
         session_id = query.session_id
+        print("second seehfbo", session_id)
         #print("seshid", session_id)
         token = get_session_id.get_token(session_id)
 
         context = {'username': username}
-        try:
-            additem.make_api_call(token=token)
+        additem.make_api_call(token=token)
 
-            return render("import_success.html", context=context)
-        except:
-            return HttpResponse("There was an error with the listing")
+        return render("import_success.html", context=context)
     # import logging
     # logger = logging.getLogger('testlogger')
     # logger.info('This is a simple log message')
@@ -280,6 +278,7 @@ def product_info(request):
         variation value is clicked'''
 
         session_id = get_session_id.get_session_id()
+        print(session_id)
         new_sesh_id = SessionID(session_id=session_id)
         new_sesh_id.save()
         #print("session_id_got", session_id)

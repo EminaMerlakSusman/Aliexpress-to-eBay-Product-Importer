@@ -183,7 +183,7 @@ def return_response(url):
                     cur_val = value_dict["Actual_Name"]
                     if cur_id == this_property_id:
                         value = cur_val
-                        id = cur_ids
+                        id = cur_id
 
                 #if name in which_var_has_images:
                     #in this case we set the variation id a

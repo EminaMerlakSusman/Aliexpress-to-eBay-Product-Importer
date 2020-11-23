@@ -167,16 +167,16 @@ def homepage(request):
 def product_info(request):
 
 
-    # if "?ebaytkn=&tknexp=" in request.get_full_path():
-    #     print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    #
-    #     query = SessionID.objects.latest("id")
-    #     session_id = query.session_id
-    #     token = get_session_id.get_token(session_id)
-    #
-    #     additem.make_api_call(token=token)
-    # 
-    #     return HttpResponse("made api call with token:" + token)
+    if "?ebaytkn=&tknexp=" in request.get_full_path():
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+        query = SessionID.objects.latest("id")
+        session_id = query.session_id
+        token = get_session_id.get_token(session_id)
+
+        additem.make_api_call(token=token)
+
+        return HttpResponse("made api call with token:" + token)
     # import logging
     # logger = logging.getLogger('testlogger')
     # logger.info('This is a simple log message')
@@ -271,13 +271,13 @@ def product_info(request):
 
         '''Fetches the URL of a variation image (if it exists) to display once the
         variation value is clicked'''
-        return HttpResponse("OK!")
-        # session_id = get_session_id.get_session_ID()
-        # new_sesh_id = SessionID(session_id=session_id)
-        # new_sesh_id.save()
-        # print("session_id_got")
-        #
-        # return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_id))
+
+        session_id = get_session_id.get_session_ID()
+        new_sesh_id = SessionID(session_id=session_id)
+        new_sesh_id.save()
+        print("session_id_got")
+
+        return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_id))
 
 
         #token = get_session_id.get_token(session_ID)

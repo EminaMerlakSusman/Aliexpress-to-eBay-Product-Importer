@@ -9,13 +9,10 @@ api = Connection(domain='api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7
                  devid="09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
                  certid="SBX-ca7fae460895-89b9-45d6-8fce-7d21")
 
-def get_session_ID():
-    '''Establishing API conncetion'''
 
-    global api
-
-    '''Making GetSessionID call to get session ID of the user who logged in'''
-
+def get_session_id():
+    '''Establishing API conncetion
+     Making GetSessionID call to get session ID of the user who logged in'''
     request = {
         'RuName': "Emina_Merlak_Su-EminaMer-testin-gjjhk"
 
@@ -31,14 +28,13 @@ def get_session_ID():
     return session_ID
 
 
-
 def get_token(session_ID):
     '''Exchanging user's SessionID for a token'''
-    global api
+
 
 
     data = {
-        'SessionID': "SysFAA**ec001c891750ac793df557bcfffff2b3"
+        'SessionID': session_ID
 
     }
 
@@ -49,7 +45,9 @@ def get_token(session_ID):
     root = ET.fromstring(token_response.text)
     #
     token = root[4].text
+
     return token
+
 
 
     # api = Connection(domain='api.sandbox.ebay.com', token="AgAAAA**AQAAAA**aAAAAA**tli5Xw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wFk4aiCpSDoA6dj6x9nY+seQ**SysFAA**AAMAAA**fuG6FhFWC2ckDcNXyOAsdXH3SbqDIDXtqt8rgRvfHV09Eqzu0P6Fi1HB1rzY622nqUXVFYQBJJK3nxga5h9FZXGjAotN1k0NK7b6D2aNpKGB9R28lQZF0wLQG1YEAuR3esl/QusZin7P1mTlf48NDC++nrkr0RHfEGwD2bR0l9USBAvGus1A6h86u1JvDu7QzSpZsuMJyRUdX6KnY7fU7lEi4zHmZIr1YYfBEhdI88e0PTKOwyHyBPSxaLc5oRIzmc9tkn60TquKAd44uEK2AKNu/+vAOEP6pJjdfsi8So7aTORECG8CGSSQ6HcT1iW2yyXZVSt1V6CMTUYIS9+dx+VaHrTh6a2ctwGDOoM6WnrqOPylm6aRC043XwyDCTsPPri229QVTxX9lEIpEnO5xHjXg2rnCYFM+RoSiqZXCUj7CcRGVpd/enhYYGUzZ1QBXPHX3AWHiJvJlemYOAnllcyovwCaZD1m9sTWn8UL/VnvyLUHiuuxTZuhuHEKKRKvFVLWGsA261nI0jQ4pU9xxKOPvHGAmdGPt717urn2ILli/+XLsnr5riU6hYUXIxdcNcUXvdn3Ic2ALCobwjbuiYpMlxObJTOjK/4OBwhD2wFjfkl8WtiKqEIYNjrALIxenQa9RE4a8DlGRJU7AltkDFrQn58NkZtTPck0xSLPHFW7ZNoYGnjUW51stzYK0Alod4SAG7dXwvEjq1k+KBeTG0Q+Td/VNqHjRN4KwjF7FHtU+1UgLSgHFQr6jaU4mM4S", debug=True)
@@ -96,9 +94,10 @@ def get_token(session_ID):
 
 #resp = requests.get("https://signin.ebay.com/ws/eBayISAPI.dll?oAuthRequestAccessToken&client_id=EminaMer-testing-PRD-2e6527e18-557772c0&redirect_uri=Emina_Merlak_Su-EminaMer-testin-vnissn&client_secret=PRD-e6527e1828b8-ed34-423d-956f-2792&code=v%5E1.1%2523i%5E1%2523p%5E3%2523I%5E3%2523f%5E0%2523r%5E1%2523t%5EUl41XzExOjEyNTQzNUQ5NzcyNzAwRjlEQjQwRTQ2QUREQzE1Qzg2XzBfMSNFXjI2MA%253D%253D")
 #print(resp.text)
-#sesh = get_session_ID()
+#sesh = get_session_id()
 #print(sesh)
 #
 #sesh = "SysFAA**f539e9451750ac793df557bcfffff137"
 #print("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(sesh))
-print(get_token("SysFAA**f539e9451750ac793df557bcfffff137"))
+
+print(get_token("SysFAA**f55719841750a9d9ccc3c06ffffff59c"))

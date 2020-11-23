@@ -177,7 +177,7 @@ def product_info(request):
         #print("seshid", session_id)
         token = get_session_id.get_token(session_id)
 
-        context = {'username', username}
+        context = {'username': username}
         try:
             additem.make_api_call(token=token)
 

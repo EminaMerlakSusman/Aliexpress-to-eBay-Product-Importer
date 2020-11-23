@@ -273,7 +273,7 @@ def product_info(request):
         '''Fetches the URL of a variation image (if it exists) to display once the
         variation value is clicked'''
 
-        session_id = get_session_id.get_session_ID()
+        session_id = get_session_id.get_session_id()
         new_sesh_id = SessionID(session_id=session_id)
         new_sesh_id.save()
         print("session_id_got", session_id)

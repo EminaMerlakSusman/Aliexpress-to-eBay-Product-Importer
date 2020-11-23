@@ -11,14 +11,14 @@ def format_api_call(url):
     if title[80] == " ":
         title_fr = title[:80]
     else:
-        print(title)
+        #print(title)
         rev = title[:80][::-1]
-        print(rev)
+        #print(rev)
         i = rev.index(" ")
-        print(i)
+        #print(i)
         i_fr = 79-i
         title_fr = title[:i_fr]
-        print("Final title:", title_fr)
+        #print("Final title:", title_fr)
 
 
     if not listing_has_variations:
@@ -73,12 +73,12 @@ def format_api_call(url):
                 val_name = values_dict["Actual_Name"]
                 vals_list_formatted.append(val_name)
             variationSpecificsSet["NameValueList"].append({"Name": name, "Value": vals_list_formatted})
-    try:
-        print(variation_node)
-        print(variationSpecificsSet)
-        print(variationSpecificPictureSet)
-    except:
-        pass
+    # try:
+    #     #print(variation_node)
+    #     #print(variationSpecificsSet)
+    #     #print(variationSpecificPictureSet)
+    # except:
+    #     pass
     if not listing_has_var_images:
         variationSpecificName = None
         variationSpecificPictureSet = None

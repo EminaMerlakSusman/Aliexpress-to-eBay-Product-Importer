@@ -6,7 +6,7 @@ import re
 
 
 def return_response(url):
-
+    #url = "https://www.aliexpress.com/item/4000926109140.html?spm=a2g0s.9042311.0.0.6af74c4dYdrOMu"
     '''Return url'''
     #return url
     #url = "https://www.aliexpress.com/item/33054166789.html"
@@ -142,50 +142,6 @@ def return_response(url):
                 #print(variationPictures)
 
 
-
-        #checking
-
-        # skuPropertyList = []
-        # variation_pictures = {}
-        # #print("len", len(matches_positions))
-        #
-        #
-        # for i in matches_positions:
-        #     st = i-2
-        #
-        #     # getting variation list
-        #     end = variations_list[st:].index("}]}") + 3
-        #     to_dict = json.loads(variations_list[st:][:end])
-        #     #print(variations_list[st:][:end])
-        #     #print("to_dict", to_dict)
-        #     name = to_dict["skuPropertyName"]
-        #     raw_value_list = to_dict["skuPropertyValues"]
-        #     try:
-        #         check = raw_value_list[0]["skuPropertyImagePath"] #checking if this variation has images
-        #         #we only need to check the first value, because if one ha images, they all have them
-        #         which_var_has_images.append(name)
-        #         variation_pictures[name] = []
-        #     except:
-        #         pass
-        #
-        #     # getting images of variations, if they exist
-        #     formatted_value_list = []
-        #     for i in range(len(raw_value_list)):
-        #         val_dict = raw_value_list[i]
-        #         value = val_dict["propertyValueDefinitionName"]
-        #         if name in which_var_has_images:
-        #             value = val_dict["propertyValueId"]
-        #         formatted_value_list.append(value)
-        #
-        #         if name in which_var_has_images: #if this variation has images, we put them in variation images list
-        #             pictureURL = val_dict["skuPropertyImagePath"]
-        #             variation_pictures[name].append({"VariationSpecificValue": value, "PictureURL": pictureURL})
-        #
-        #     formatted_dict = {"Name": name, "Value": formatted_value_list}
-        #
-        #     skuPropertyList.append(formatted_dict)
-
-
         '''Getting prices for each variation combination'''
 
         start = response.find("skuPriceList") + len("skuPriceList") + 2 # this is a list of dictionaries with price of each combination
@@ -216,15 +172,18 @@ def return_response(url):
                 this_property_id = raw_values[j]
                 check_string = this_property_id
                 name = productSKUPropertyList[j]["Name"]
+
                 value_list = productSKUPropertyList[j]["Value"]
                 #finding value in value list with this id
                 #print(value_list)
                 for value_dict in value_list:
                     cur_id = value_dict["Value_Id"]
+
+
                     cur_val = value_dict["Actual_Name"]
                     if cur_id == this_property_id:
                         value = cur_val
-                        id = cur_id
+                        id = cur_ids
 
                 #if name in which_var_has_images:
                     #in this case we set the variation id a
@@ -232,6 +191,8 @@ def return_response(url):
                 formatted_values.append({"Value_Name": value, "Value_Id": id})
             price = combination_dict['skuVal']['skuAmount']['value']
             skuId = combination_dict['skuId']
+                #print("skuid found,", raw_values, formatted_values, combination_dict)
+                #print(name, value_list)
             if price < 0.99: #minimum allowed price on ebay
                 price = 0.99
 
@@ -253,17 +214,6 @@ def return_response(url):
                     id = name_id_pair["Value_Id"]
                     name_id_pair["Actual_Name"] = str(id)
 
-        #print(productSKUPropertyList)
-
-        # for var_dict in productSKUPropertyList:
-        #     values_list = var_dict["Value"]
-        #     names = [d["Value Name"] for d in values_list]
-        #     names_set = set(names)
-        #     if len(names) != len(names_set):
-        #         # names contain duplicate values
-        #         for name_id_pair in values_list:
-        #             id = name_id_pair["Value Id"]
-        #             name_id_pair["Value Name"] = id
 
         '''We also need to change skuPriceList.
         we already changed productSKUPropertyList,
@@ -343,17 +293,17 @@ def return_response(url):
 
             skuPriceList = new_sku_price_list
             productSKUPropertyList.pop(ship_var_index)
-        try:
-
-            print("ProductSKUpro", productSKUPropertyList)
-
-            print("VariationPictures", variationPictures)
-
-            print("Skuproce", skuPriceList)
-
-        except:
-            pass
+        # try:
+        #
+        #     print("ProductSKUpro", productSKUPropertyList)
+        #
+        #     print("VariationPictures", variationPictures)
+        #
+        #     print("Skuproce", skuPriceList)
+        #
+        # except:
+        #     pass
     return (title, images_list, price_value, listing_has_variations, listing_has_var_images, productSKUPropertyList, variationPictures, skuPriceList)
 
-#return_response("https://www.aliexpress.com/item/4000926109140.html?spm=a2g0s.9042311.0.0.6af74c4dYdrOMu")
+#return_response()
 #return_response("https://www.aliexpress.com/item/4001041839357.html?spm=a2g0s.9042311.0.0.6af74c4dYdrOMu")

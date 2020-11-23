@@ -168,16 +168,19 @@ def product_info(request):
 
 
     if "?ebaytkn=&tknexp=" in request.get_full_path():
-        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        #print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
         query = SessionID.objects.latest("id")
         session_id = query.session_id
-        print("seshid", session_id)
+        #print("seshid", session_id)
         token = get_session_id.get_token(session_id)
 
-        additem.make_api_call(token=token)
+        try:
+            additem.make_api_call(token=token)
 
-        return HttpResponse("made api call with token:" + token)
+            return HttpResponse("Successfully posted to eBay!")
+        except:
+            return HttpResponse("There was an error with the listing", e)
     # import logging
     # logger = logging.getLogger('testlogger')
     # logger.info('This is a simple log message')
@@ -186,7 +189,7 @@ def product_info(request):
 
     if request.method == "GET" and not request.is_ajax():
         '''Get product info from database'''
-        print("request was not ajax")
+        #print("request was not ajax")
         product = Product.objects.all().latest("id")
         images_list_from_db = ProductImage.objects.all().filter(product=product)
         var_names = Variation.objects.filter(product=product)
@@ -206,32 +209,32 @@ def product_info(request):
     elif request.is_ajax() and request.GET['action'] == 'options_chosen' and request.method == "GET":
 
         check = True
-        print(request.is_ajax())
+        #print(request.is_ajax())
 
         '''When a user chooses a product variant on the page, this makes an ajax call
         to retrieve the price of this combination'''
 
-        print("request was ajax")
+        #print("request was ajax")
 
         combinations = request.GET["alltext"]
         combinations_list = combinations.split(";")
-        print("conbinafiosbn", combinations_list)
+        #print("conbinafiosbn", combinations_list)
         product = Product.objects.all().latest("id")
 
         var_names = list(Variation.objects.filter(product=product))
-        print("var_names", var_names)
+        #print("var_names", var_names)
         corresponding_values = []
         for i in range(len(combinations_list)):
             # finding this variant in database
 
             var_name = var_names[i]
-            print("var_name", var_name)
+            #print("var_name", var_name)
             var_values = VariationValue.objects.filter(variation_name=var_name)
-            print("var values", var_values)
+            #print("var values", var_values)
             for val_obj in var_values:
-                print("val obj", val_obj)
+                #print("val obj", val_obj)
                 val = val_obj.value
-                print(str(combinations_list[i]).strip())
+                #print(str(combinations_list[i]).strip())
                 if str(val) == str(combinations_list[i]).strip():
                     corresponding_values.append(val_obj)
 
@@ -251,15 +254,15 @@ def product_info(request):
         corresponding_var_pics = VariationPictures.objects.filter(product=product)
         var_name = corresponding_var_pics.latest("id").variation_name # they all have the same variation name
         ind = var_names.index(var_name)
-        print("var_names index car_name", ind)
+        #print("var_names index car_name", ind)
         value_list = []
-        print("corresponding values", corresponding_values)
+        #print("corresponding values", corresponding_values)
         val_obj = corresponding_values[ind]
         var_value_list = VariationPictures.objects.filter(product=product, variation_name = var_names[ind], value = val_obj)
-        print(var_value_list)
+        #print(var_value_list)
         value_list = var_value_list
 
-        print("value list", value_list)
+        #print("value list", value_list)
         imageURL = value_list[0].imageURL
 
         data = {
@@ -276,7 +279,7 @@ def product_info(request):
         session_id = get_session_id.get_session_id()
         new_sesh_id = SessionID(session_id=session_id)
         new_sesh_id.save()
-        print("session_id_got", session_id)
+        #print("session_id_got", session_id)
 
         return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_id))
 

@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86ad1abd-edc1-47ff-9168-9c8cafab690a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/additem.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/additem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/api_formatting_for_raw_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/api_formatting_for_raw_html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/raw_html_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/raw_html_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/djangonautic/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +43,7 @@
       <recent name="C:\Users\Emina\Desktop\icons\ebaysdk\djangonautic\djangonautic" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.get_session_id">
+  <component name="RunManager" selected="Python.raw_html_test">
     <configuration name="additem (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="djangonautic" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -331,8 +335,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.get_session_id" />
         <item itemvalue="Python.raw_html_test" />
+        <item itemvalue="Python.get_session_id" />
         <item itemvalue="Python.test_db_queries" />
         <item itemvalue="Python.get_categories" />
         <item itemvalue="Python.additem (1)" />
@@ -361,22 +365,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604087695158" />
-    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1606138984085">
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1606149434818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606138984085" />
-    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1606138984085">
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606149434818" />
+    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1606149434818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606138984085" />
-    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1606138984085">
+    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606149434818" />
+    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1606149434818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606138984085" />
-    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1606138984085">
+    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606149434818" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1606149434818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606138984085" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606149434818" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1602100669102">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

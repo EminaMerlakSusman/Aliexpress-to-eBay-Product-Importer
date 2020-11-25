@@ -219,6 +219,7 @@ def return_response(url):
         '''Changing variation specific image set in case of duplicates
         (at this point we aleady changed productSKUPropertyList).
         '''
+        listing_has_var_images = variationPictures != {}
         if listing_has_var_images:
             name = list(variationPictures.keys())[0]
             corresponding_names = [name_dict['Name'] for name_dict in productSKUPropertyList]
@@ -226,12 +227,16 @@ def return_response(url):
             corresponding_dict = productSKUPropertyList[corresponding_name_index]
             list_of_value_dicts = corresponding_dict["Value"]
             list_of_corresponding_ids = [x["Value_Id"] for x in list_of_value_dicts]
+            print(list_of_corresponding_ids)
             #print(variationPictures)
             for val_dict in variationPictures[name]:
                 #print(val_dict)
                 value_id = val_dict["Value_Id"]
+                print(value_id)
                 ind = list_of_corresponding_ids.index(value_id)
+                print(ind)
                 value_real_name = list_of_value_dicts[ind]["Actual_Name"]
+                print(value_real_name)
                 val_dict["Actual_Name"] = value_real_name
 
 
@@ -272,17 +277,18 @@ def return_response(url):
 
             skuPriceList = new_sku_price_list
             productSKUPropertyList.pop(ship_var_index)
-        # try:
-        #
-        #     print("ProductSKUpro", productSKUPropertyList)
-        #
-        #     print("VariationPictures", variationPictures)
-        #
-        #     print("Skuproce", skuPriceList)
-        #
-        # except:
-        #     pass
+        try:
+
+            print("ProductSKUpro", productSKUPropertyList)
+
+            print("VariationPictures", variationPictures)
+
+            print("Skuproce", skuPriceList)
+
+        except:
+            pass
     return (title, images_list, price_value, listing_has_variations, listing_has_var_images, productSKUPropertyList, variationPictures, skuPriceList)
 
 #return_response()
 #return_response("https://www.aliexpress.com/item/4001041839357.html?spm=a2g0s.9042311.0.0.6af74c4dYdrOMu")
+return_response("https://www.aliexpress.com/item/32994596152.html?spm=a2g0o.productlist.0.0.f4d75b0adI9yvI&algo_pvid=8492daee-efd4-4294-aafc-ac99754406d5&algo_expid=8492daee-efd4-4294-aafc-ac99754406d5-1&btsid=0bb0623f16063141935796037ec3ae&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_")

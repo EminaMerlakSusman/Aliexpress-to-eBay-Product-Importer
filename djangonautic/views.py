@@ -168,6 +168,7 @@ def product_info(request):
 
 
     if "?ebaytkn=&tknexp=" in request.get_full_path():
+        '''This exeutes after the user has logged in with their ebay account'''
         url = request.get_full_path()
 
         username = url[url.index("username=") + len("username="):]
@@ -274,8 +275,7 @@ def product_info(request):
 
     elif request.is_ajax() and request.GET['action'] == 'test_call' and request.method == "GET":
 
-        '''Fetches the URL of a variation image (if it exists) to display once the
-        variation value is clicked'''
+        '''Makes api call to get user token'''
 
         session_id = get_session_id.get_session_id()
         print(session_id)

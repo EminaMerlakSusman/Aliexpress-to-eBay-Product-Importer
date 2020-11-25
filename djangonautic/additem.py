@@ -11,8 +11,8 @@ from djangonautic.models import Page
 
 def make_api_call(token):
     # getting inputted product url from database
-    url_list = list(Product.objects.all())
-    url = url_list[-1].productURL
+    url_query = Product.objects.latest("id")
+    url = url_query.productURL
 
     (title_fr, listing_has_variations, main_product_images, price_value, variation_node, variationSpecificsSet,
      variationSpecificName, variationSpecificPictureSet) = api_formatting_for_raw_html.format_api_call(url)  # Importing product data from URL

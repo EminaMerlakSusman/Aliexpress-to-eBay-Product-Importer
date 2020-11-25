@@ -8,14 +8,6 @@ import re
 def return_response(url):
     #url = "https://www.aliexpress.com/item/4000926109140.html?spm=a2g0s.9042311.0.0.6af74c4dYdrOMu"
     '''Return url'''
-    #return url
-    #url = "https://www.aliexpress.com/item/33054166789.html"
-    #url = "https://www.aliexpress.com/item/4000389232458.html?spm=a2g0o.productlist.0.0.59785bc7YsivAy&algo_pvid=b21d6114-3ec7-48a4-8548-f4b98c8bb37b&algo_expid=b21d6114-3ec7-48a4-8548-f4b98c8bb37b-0&btsid=0bb0623f16012936880374359ec3c9&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
-    #url = "https://www.aliexpress.com/item/4001223428669.html?spm=a2g0o.productlist.0.0.109e5d77ynroze&algo_pvid=2c17516c-e83a-4656-8c05-788105963967&algo_expid=2c17516c-e83a-4656-8c05-788105963967-15&btsid=0bb0622d16012931723794901e98f6&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
-    #url = "https://www.aliexpress.com/item/4000726323595.html?spm=a2g0o.productlist.0.0.2d292ca8CQbLwQ&algo_pvid=339c9865-0ac6-487c-99df-a03dc754d3ff&algo_expid=339c9865-0ac6-487c-99df-a03dc754d3ff-0&btsid=0bb0623316013054632248356e88bb&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
-    #url="https://www.aliexpress.com/item/1005001420820409.html?spm=a2g01.12597576.p99adbb.28.34ac6501OOCKso&gps-id=300000000220206"
-    #url = "https://www.aliexpress.com/item/33055295288.html?spm=a2g0o.productlist.0.0.1aee3fd2w2G1NE&algo_pvid=301b895e-1e59-4c70-aaf3-4ea7dd77e13a&algo_expid=301b895e-1e59-4c70-aaf3-4ea7dd77e13a-11&btsid=0bb0622e16014125086708276e486a&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
-    #url = "https://www.aliexpress.com/item/4001155636952.html?spm=a2g0o.productlist.0.0.448e413dN6SAhP&algo_pvid=838dab60-bf9f-4bc9-9a16-8b0dd7656a47&algo_expid=838dab60-bf9f-4bc9-9a16-8b0dd7656a47-9&btsid=0bb0622f16027692419813645ecfb0&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
     response = requests.get(url).text
     print(response)
 
@@ -99,11 +91,7 @@ def return_response(url):
         json_of_var_list = json.loads(variations_list)
         #print(json_of_var_list)
         ind = variations_list.index("isShowTypeColor")
-        #print(json.loads)
 
-
-        #matches = re.finditer("isShowTypeColor", variations_list)
-        #matches_positions = [match.start() for match in matches]
         listing_has_var_images = True
         # getting name-value pairs of variations
         productSKUPropertyList = []
@@ -149,15 +137,6 @@ def return_response(url):
         #p#rint(response[start:end])
         needed_dict = json.loads(response[start:][:end])
 
-
-        #print(needed_dict)
-
-        #matches = re.finditer("skuAttr", needed_dict)
-        #matches_positions = [match.start() for match in matches]
-        #print(matches_positions)
-
-        #var_list = []
-        #for index in matches_positions:
         skuPriceList = []
         #print("len", len(matches_positions))
         for combination_dict in needed_dict:

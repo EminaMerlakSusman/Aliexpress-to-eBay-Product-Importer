@@ -6,24 +6,17 @@ from djangonautic import get_categories
 from djangonautic.models import Product
 from djangonautic.models import Page
 
-#var_pics = {'Color': [x[1] for x in variations]}
-#from djangonautic.views import text
+
 '''Makes the api call to add product, also calls other functions to import the product in the url'''
 
-# this decorator is all that's needed to tell celery this is a worker task
-
-def make_api_call(token): #we will track the progress of this function
-    #getting inputted product url from database
+def make_api_call(token):
+    # getting inputted product url from database
     url_list = list(Product.objects.all())
     url = url_list[-1].productURL
-    #print(url)
-    #config_file = os.path.abspath('ebay.yaml')
 
     (title_fr, listing_has_variations, main_product_images, price_value, variation_node, variationSpecificsSet,
      variationSpecificName, variationSpecificPictureSet) = api_formatting_for_raw_html.format_api_call(url)  # Importing product data from URL
-    # progress = Page(title = 'Got data from database')
-    # progress.save()
-    #getting rid of '&' sign in title to avoid xml errors
+    # getting rid of '&' sign in title to avoid xml errors
     cleaned_title = ''
     for char in title_fr:
         if char != "&":
@@ -37,14 +30,10 @@ def make_api_call(token): #we will track the progress of this function
         else:
             cleaned_title += '&amp;'
 
-    #print(cleaned_title)
-    cateid = get_categories.get_suggested_categories(query=cleaned_title, config_file=None)[1] #This is the second worker function
-    # progress = Page(title = 'Got suggested categories')
-    # progress.save()
+
+    cateid = get_categories.get_suggested_categories(query=cleaned_title, config_file=None)[1] # getting suggested categories
     api = Connection(domain='api.sandbox.ebay.com', token = token)
-    # api = Connection(domain='api.sandbox.ebay.com', appid="EminaMer-testing-SBX-0ca7fae46-248b79d0",
-    #                  devid="09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
-    #                  certid="SBX-ca7fae460895-89b9-45d6-8fce-7d21")
+
     request = {
         "Item": {
             "Title": cleaned_title,

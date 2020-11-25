@@ -11,14 +11,10 @@ def format_api_call(url):
     if title[80] == " ":
         title_fr = title[:80]
     else:
-        #print(title)
         rev = title[:80][::-1]
-        #print(rev)
         i = rev.index(" ")
-        #print(i)
         i_fr = 79-i
         title_fr = title[:i_fr]
-        #print("Final title:", title_fr)
 
 
     if not listing_has_variations:

@@ -44,8 +44,8 @@ def make_api_call(token):
             "PaymentMethods": "PayPal",
             "PayPalEmailAddress": "sb-ekcsr976485@personal.example.com",
             "PrimaryCategory": {"CategoryID": cateid},
-            "ItemSpecifics": {"NameValueList": [{"Name": "Brand", "Value": "Unbranded"}, {"Name": "Type", "Value": "Toilet Brush"}, {"Name": "Material", "Value": "Plastic"}]},
-            "Description": "sth",
+            "ItemSpecifics": {"NameValueList": [{"Name": "Brand", "Value": "Unbranded"}]},
+            "Description": "",
             "ListingDuration": "GTC",
             "Currency": "USD",
             "ReturnPolicy": {

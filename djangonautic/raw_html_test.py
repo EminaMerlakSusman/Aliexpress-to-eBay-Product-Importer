@@ -292,4 +292,4 @@ def return_response(url):
 
 #return_response()
 #return_response("https://www.aliexpress.com/item/4001041839357.html?spm=a2g0s.9042311.0.0.6af74c4dYdrOMu")
-response = return_response("https://www.aliexpress.com/item/32994596152.html?spm=a2g0o.productlist.0.0.f4d75b0adI9yvI&algo_pvid=8492daee-efd4-4294-aafc-ac99754406d5&algo_expid=8492daee-efd4-4294-aafc-ac99754406d5-1&btsid=0bb0623f16063141935796037ec3ae&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_")
+# response = return_response("https://www.aliexpress.com/item/32994596152.html?spm=a2g0o.productlist.0.0.f4d75b0adI9yvI&algo_pvid=8492daee-efd4-4294-aafc-ac99754406d5&algo_expid=8492daee-efd4-4294-aafc-ac99754406d5-1&btsid=0bb0623f16063141935796037ec3ae&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_")

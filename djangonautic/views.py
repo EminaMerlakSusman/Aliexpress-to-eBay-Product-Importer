@@ -29,9 +29,11 @@ def homepage(request):
 
             from djangonautic.raw_html_test import return_response
             progress = 'making api call'
-
-            (title, images_list, price_value, listing_has_variations, listing_has_var_images, productSKUPropertyList,
+            try:
+                (title, images_list, price_value, listing_has_variations, listing_has_var_images, productSKUPropertyList,
              variationPictures, skuPriceList) = return_response(text) # calling function to import product
+            except:
+                return HttpResponse("Sorry, an error occured while importing the listing!")
 
             thumbnail_image_url = images_list[0]
             #print(images_list[0])
@@ -180,9 +182,12 @@ def product_info(request):
         token = get_session_id.get_token(session_id)
 
         context = {'username': username}
-        additem.make_api_call(token=token)
+        try:
+            additem.make_api_call(token=token)
+        except:
+            return HttpResponse("Sorry, there was an error while trying to publish the listing!")
 
-        return render("import_success.html", context=context)
+        return render(request, "import_success.html", context=context)
     # import logging
     # logger = logging.getLogger('testlogger')
     # logger.info('This is a simple log message')

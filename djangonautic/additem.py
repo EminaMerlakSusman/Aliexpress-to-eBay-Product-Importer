@@ -45,7 +45,7 @@ def make_api_call(token):
             "PayPalEmailAddress": "sb-ekcsr976485@personal.example.com",
             "PrimaryCategory": {"CategoryID": cateid},
             "ItemSpecifics": {"NameValueList": [{"Name": "Brand", "Value": "Unbranded"}]},
-            "Description": "",
+            "Description": cleaned_title,
             "ListingDuration": "GTC",
             "Currency": "USD",
             "ReturnPolicy": {

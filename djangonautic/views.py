@@ -182,10 +182,7 @@ def product_info(request):
         token = get_session_id.get_token(session_id)
 
         context = {'username': username}
-        try:
-            additem.make_api_call(token=token)
-        except:
-            return HttpResponse("Sorry, there was an error while trying to publish the listing!")
+        additem.make_api_call(token=token)
 
         return render(request, "import_success.html", context=context)
     # import logging

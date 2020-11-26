@@ -43,5 +43,3 @@ def get_suggested_categories(query, config_file):
     category_path = "/".join(list(reversed(parents))) + "/" + name
     return (category_path, cateid)
 
-# get_suggested_categories(query = "https://www.aliexpress.com/item/4001155636952.html?spm=a2g0o.productlist.0.0.448e413dN6SAhP&algo_pvid=838dab60-bf9f-4bc9-9a16-8b0dd7656a47&algo_expid=838dab60-bf9f-4bc9-9a16-8b0dd7656a47-9&btsid=0bb0622f16027692419813645ecfb0&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_"
-# , config_file=None)

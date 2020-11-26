@@ -6,8 +6,7 @@ def get_suggested_categories(query, config_file):
     '''Getting suggestet categories'''
     title = query
     #title = raw_html_test.return_response(url)[0]
-    api = Connection(domain='api.ebay.com', appid="EminaMer-testing-PRD-2e6527e18-557772c0", devid = "09ea5789-88e8-49dd-9491-8d50ebdc9fd4",
-                     certid = "PRD-e6527e1828b8-ed34-423d-956f-2792", token = "AgAAAA**AQAAAA**aAAAAA**IlWIXw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AClYClAJOHoQWdj6x9nY+seQ**6X4GAA**AAMAAA**o6WOvjJT/9a6cQuSffJ9t9+6RqpitvABF28T5qWZEryYEADlqbm1jwcYT8nWAfj/6I17cL1gd0Glz6rdTVjdq9LbLn+Oj44z511aY6nP6Sndj8i4OC9LghdVQDCNAgm0HoMwKVblLBEFAslNvRxJhaY+id9EGiOF7EMBRb6UZCchRaJmlWrqN0/8ygEOvsqU1dBROwbag3OFKpnDa9rfgQcUJiSzOft/+dkBZI52JlmCzsNP02aNg802KK5IzYplpWVQKgyKQT6wF60SIlPyGJQn4FaerK4XzrfFQRA3CEkq9gmkDDvBpPUQRLll+6VULWYnvvYtx6lBvrnEYtl3ISOUIkFTxzfI5vPXvVPNBfrofqL0BcKekm03mh9oPVkVdkg+GX/ZEYLOo9GCUTyx3wBWaZqoVQUYX2IUYB+cwHOea2f7qAuP9/cUFM58+xb57+Qve1fujnnoXTFX4MAroo1WwZp1Y5RMTmgfReF8lowElFgSajYXVkA7FbCzImyZKsSdKFel4WdAgTgbK0LA71p+X4mmLyheIlDOFesqB+ZqOD64rC992XPcoqDRjiuUjRcdAs8/BG9PYRksvcOFQNyuM1njowOcd0QmZJdlB4xDFnzzyGrSZJt2qdHlkvhWLnNzop1KThiAhEeozEzcgV9DgiSGmCs9+ZcoY/lZ8bsESlSb28+Rgedi3TQ7pHPnD5jqVkr4OJQ+9ZkqY52f2zMpYDFKte8m2FwL+M+fNHr9UzeqUq3SCXWLOzjICBPq", config_file=config_file, debug=True)
+    api = Connection(config_file=config_file, debug=True)
     #print(title)
     #getting rid of any special characters in title to avoid errors with the query
     # cleaned_title = ''

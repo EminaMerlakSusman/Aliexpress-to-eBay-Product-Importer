@@ -285,7 +285,7 @@ def product_info(request):
         new_sesh_id.save()
         #print("session_id_got", session_id)
 
-        return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=Emina_Merlak_Su-EminaMer-testin-gjjhk&SessID={}".format(session_id))
+        return HttpResponse("https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&runame=&SessID={}".format(session_id))
 
 
         #token = get_session_id.get_token(session_ID)
